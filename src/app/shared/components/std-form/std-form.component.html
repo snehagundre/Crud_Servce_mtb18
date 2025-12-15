@@ -1,0 +1,38 @@
+
+<div class="card">
+   <div class="card-body">
+     <form #stdForm="ngForm"
+      (ngSubmit)="onstdAdd()"
+     >
+        <div class="form-group">
+            <label for="fname"><b>Fname*</b></label>
+            <input type="text" name="fname" id="fname" class="form-control" ngModel required>
+        </div>
+        <div class="form-group">
+            <label for="lname"><b>Lname*</b></label>
+            <input type="text" name="lname" id="lname" class="form-control" ngModel required>
+        </div>
+        <div class="form-group">
+            <label for="email"><b>Email*</b></label>
+            <input type="text" name="email" id="email" class="form-control" ngModel required>
+        </div>
+        <div class="form-group">
+            <label for="contact"><b>Contact*</b></label>
+            <input type="text" name="contact" id="contact" class="form-control" ngModel required>
+        </div>
+        <button 
+        *ngIf="!isInEditMode"
+        mat-raised-button color="primary"
+        class="btn btn-sm btn-block">
+            Add Student
+        </button>
+        <button 
+        (click)="onStdUpdate()"
+        *ngIf="isInEditMode"
+        mat-raised-button color="accent"
+        class="btn btn-sm btn-block">
+            Update Student
+        </button>
+    </form>
+   </div>
+</div>

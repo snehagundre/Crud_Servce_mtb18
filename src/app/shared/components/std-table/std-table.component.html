@@ -1,0 +1,46 @@
+
+<div class="card ">
+        <div class="tble-responsive text-center" *ngIf="stdarr.length>0 ; else nostd">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Sr No</th>
+                        <th>FullName</th>
+                        <th>Email</th>
+                        <th>Contact</th>
+                        <th>Edit</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let s of stdarr ; let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{s.fname}} {{s.lname}}</td>
+                        <td>{{s.email}}</td>
+                        <td>{{s.contact}}</td>
+                        <td>
+                            <button 
+                            (click)="onstdEdit(s)"
+                            mat-mini-fab color="primary">
+                                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="edit">Edit</mat-icon>
+                            </button>
+                        </td>
+                        <td>
+                             <button 
+                             [disabled]="s.id == editId"
+                             (click)="onStdRemove(s.id)"
+                             mat-mini-fab color="warn">
+                                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="delete">Remove</mat-icon>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+</div>
+<ng-template #nostd>
+    <h2 class="alert alert-primary">
+        No Student Is Added Yet ...!!!
+    </h2>
+
+</ng-template>
