@@ -43,11 +43,8 @@ export class TodoService {
     return of(utodo)
   }
   removeTodo(id:string):Observable<string>{
-    let cnf = confirm('Are You Sure To Remove?')
-    if(cnf){
-      let get_index = this.todoArr.findIndex(t => t.id === id)
+   let get_index = this.todoArr.findIndex(t => t.id === id)
     this.todoArr.splice(get_index,1)
-    }
     return of(id)
   }
 }
